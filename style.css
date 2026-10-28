@@ -1,0 +1,374 @@
+/* =========================================================
+   style.css — all the colors, shapes and animations
+   ========================================================= */
+
+/* ----- Our color palette (change these to change the whole look) ----- */
+:root {
+  --pink: #ffd1e3;
+  --lavender: #e5d4ff;
+  --mint: #c8f5e1;
+  --peach: #ffe0c7;
+  --blue: #cfe8ff;
+  --hot-pink: #ff6fa8;
+  --purple: #9b6dff;
+  --text: #5a4a6b;
+  --white: #ffffff;
+  --shadow: 0 10px 30px rgba(155, 109, 255, 0.18);
+}
+
+/* ----- Basic reset so all browsers start the same ----- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ----- The whole page: pastel gradient background ----- */
+body {
+  font-family: "Baloo 2", "Poppins", system-ui, sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffd1e3 0%, #e5d4ff 35%, #cfe8ff 70%, #c8f5e1 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ----- Center column that holds all the cards ----- */
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 16px 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ----- Header / title area ----- */
+.hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.hero-emoji {
+  font-size: 64px;
+  animation: wiggle 2.5s ease-in-out infinite;
+  display: inline-block;
+}
+.hero h1 {
+  font-size: clamp(2rem, 7vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  background: linear-gradient(90deg, var(--hot-pink), var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.subtitle {
+  font-size: 1.1rem;
+  margin-top: 6px;
+}
+
+/* ----- White rounded "cards" ----- */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 28px 24px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(6px);
+}
+.card h2 {
+  font-size: 1.4rem;
+  color: var(--purple);
+  margin-bottom: 12px;
+}
+
+/* ----- The date picker ----- */
+.label {
+  display: block;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.date-input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.15rem;
+  color: var(--text);
+  padding: 14px 18px;
+  border: 3px solid var(--lavender);
+  border-radius: 18px;
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.date-input:focus {
+  border-color: var(--hot-pink);
+  box-shadow: 0 0 0 4px rgba(255, 111, 168, 0.2);
+}
+
+/* ----- Buttons ----- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+.btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  filter: brightness(1.05);
+}
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Big pink "Find My Birth Day" button */
+.btn-main {
+  width: 100%;
+  margin-top: 18px;
+  color: var(--white);
+  background: linear-gradient(90deg, var(--hot-pink), var(--purple));
+  box-shadow: 0 8px 20px rgba(255, 111, 168, 0.4);
+}
+.btn-main:hover {
+  box-shadow: 0 12px 26px rgba(255, 111, 168, 0.55);
+}
+
+/* Soft "Try another date" button */
+.btn-soft {
+  width: 100%;
+  margin-top: 20px;
+  color: var(--purple);
+  background: var(--lavender);
+}
+
+/* LinkedIn blue button */
+.btn-linkedin {
+  margin-top: 14px;
+  color: var(--white);
+  background: #0a66c2;
+  font-size: 1.05rem;
+  box-shadow: 0 8px 18px rgba(10, 102, 194, 0.3);
+}
+.li-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ----- Friendly error message ----- */
+.error {
+  margin-top: 14px;
+  text-align: center;
+  font-weight: 600;
+  color: #d6336c;
+  background: var(--pink);
+  border-radius: 16px;
+  padding: 10px;
+  animation: shake 0.4s;
+}
+
+/* Helper: hides anything with this class */
+.hidden {
+  display: none !important;
+}
+
+/* ----- Result area ----- */
+#resultArea {
+  text-align: center;
+  animation: popIn 0.5s ease-out;
+}
+.result-title {
+  font-size: clamp(1.3rem, 5vw, 1.7rem);
+  font-weight: 800;
+  line-height: 1.3;
+}
+.day-name {
+  display: inline-block;
+  color: var(--hot-pink);
+  font-size: 1.3em;
+  animation: bounce 1s ease infinite;
+}
+.day-line {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin: 10px 0 20px;
+}
+
+/* ----- Fun facts grid (2 columns on big screens) ----- */
+.facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.fact {
+  border-radius: 22px;
+  padding: 16px 12px;
+  transition: transform 0.2s;
+}
+.fact:hover {
+  transform: translateY(-4px) rotate(-1deg);
+}
+.fact.wide {
+  grid-column: 1 / -1;
+}
+.fact-emoji {
+  font-size: 2rem;
+}
+.fact-label {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+.fact-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+.pink     { background: var(--pink); }
+.lavender { background: var(--lavender); }
+.mint     { background: var(--mint); }
+.peach    { background: var(--peach); }
+.blue     { background: var(--blue); }
+
+/* ----- How-to & FAQ cards ----- */
+.info-card ol {
+  padding-left: 22px;
+}
+.info-card li {
+  margin-bottom: 6px;
+}
+details {
+  background: var(--white);
+  border: 2px solid var(--lavender);
+  border-radius: 18px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+details p {
+  margin-top: 8px;
+}
+
+/* ----- About Me card ----- */
+.about-card {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255, 209, 227, 0.9), rgba(229, 212, 255, 0.9));
+}
+
+/* ----- Footer ----- */
+.footer {
+  text-align: center;
+  padding: 10px 16px 30px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+.footer-li {
+  display: inline-block;
+  margin-top: 6px;
+  color: #0a66c2;
+  transition: transform 0.2s;
+}
+.footer-li:hover {
+  transform: scale(1.2);
+}
+.footer-li svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* ----- Floating background emojis ----- */
+.floaties span {
+  position: fixed;
+  font-size: 2rem;
+  opacity: 0.35;
+  animation: floatUp 12s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+.floaties span:nth-child(1) { left: 5%;  animation-delay: 0s; }
+.floaties span:nth-child(2) { left: 20%; animation-delay: 3s; }
+.floaties span:nth-child(3) { left: 40%; animation-delay: 6s; }
+.floaties span:nth-child(4) { left: 62%; animation-delay: 1.5s; }
+.floaties span:nth-child(5) { left: 80%; animation-delay: 4.5s; }
+.floaties span:nth-child(6) { left: 92%; animation-delay: 8s; }
+
+/* ----- Confetti pieces ----- */
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 50;
+}
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  width: 10px;
+  height: 14px;
+  border-radius: 3px;
+  animation: confettiFall linear forwards;
+}
+
+/* =========================================================
+   ANIMATIONS (the "moves")
+   ========================================================= */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-8deg); }
+  50%      { transform: rotate(8deg); }
+}
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(-6px); }
+  75%      { transform: translateX(6px); }
+}
+@keyframes floatUp {
+  0%   { top: 105%; transform: rotate(0deg); }
+  100% { top: -10%; transform: rotate(360deg); }
+}
+@keyframes confettiFall {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(720deg); opacity: 0.8; }
+}
+
+/* =========================================================
+   MOBILE PHONES (screens narrower than 480px)
+   ========================================================= */
+@media (max-width: 480px) {
+  .card {
+    padding: 22px 16px;
+    border-radius: 22px;
+  }
+  .facts {
+    grid-template-columns: 1fr; /* one fact per row on phones */
+  }
+  .hero-emoji {
+    font-size: 52px;
+  }
+}
+
+/* Respect people who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

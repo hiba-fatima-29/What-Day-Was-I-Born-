@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== BASIC PAGE SETTINGS ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== SEO: what Google shows in search results ===== -->
+  <title>What Day Was I Born? – Free Day of Birth Calculator</title>
+  <meta name="description" content="Find out what day of the week you were born on. Free, cute and easy day of birth calculator with age and birthday countdown.">
+  <meta name="author" content="Dr. Syeda Hiba Fatima">
+  <link rel="canonical" href="https://hiba-fatima-29.github.io/what-day-was-i-born/">
+
+  <!-- ===== How the page looks when shared on social media ===== -->
+  <meta property="og:title" content="What Day Was I Born? – Free Day of Birth Calculator">
+  <meta property="og:description" content="Find out what day of the week you were born on, plus your exact age, zodiac sign and birthday countdown!">
+  <meta property="og:url" content="https://hiba-fatima-29.github.io/what-day-was-i-born/">
+  <meta property="og:type" content="website">
+
+  <!-- ===== Little birthday-cake icon in the browser tab ===== -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
+
+  <!-- ===== Cute rounded font from Google Fonts ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- ===== Our own design file ===== -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating decorations in the background (just for fun) -->
+  <div class="floaties" aria-hidden="true">
+    <span>🎈</span><span>⭐</span><span>🌸</span><span>🎂</span><span>🎈</span><span>🌸</span>
+  </div>
+
+  <main class="container">
+
+    <!-- ===== HEADER / TITLE ===== -->
+    <header class="hero">
+      <div class="hero-emoji">🎂</div>
+      <h1>What Day Was I Born?</h1>
+      <p class="subtitle">Pick your birthday and discover the magical day you arrived! 🌸</p>
+    </header>
+
+    <!-- ===== THE CALCULATOR CARD ===== -->
+    <section class="card tool-card" aria-label="Day of birth calculator">
+
+      <!-- Part 1: The form (shown first) -->
+      <div id="formArea">
+        <label for="birthDate" class="label">🎈 Your date of birth</label>
+        <input type="date" id="birthDate" class="date-input" min="1900-01-01">
+
+        <button id="findBtn" class="btn btn-main">Find My Birth Day ✨</button>
+
+        <!-- Friendly error message (hidden until needed) -->
+        <p id="errorMsg" class="error hidden" role="alert">Oops! Please pick a real birth date 🙈</p>
+      </div>
+
+      <!-- Part 2: The result (hidden until the button is clicked) -->
+      <div id="resultArea" class="hidden" aria-live="polite">
+        <p class="result-title">🎉 You were born on a <span id="dayName" class="day-name">DAY</span>! 🎉</p>
+        <p id="dayLine" class="day-line"></p>
+
+        <!-- Fun facts grid -->
+        <div class="facts">
+          <div class="fact pink">
+            <div class="fact-emoji">🧁</div>
+            <div class="fact-label">Your exact age</div>
+            <div class="fact-value" id="ageText"></div>
+          </div>
+          <div class="fact lavender">
+            <div class="fact-emoji">☀️</div>
+            <div class="fact-label">Days you've been alive</div>
+            <div class="fact-value" id="daysAlive"></div>
+          </div>
+          <div class="fact mint">
+            <div class="fact-emoji">⏳</div>
+            <div class="fact-label">Days until next birthday</div>
+            <div class="fact-value" id="daysLeft"></div>
+          </div>
+          <div class="fact peach">
+            <div class="fact-emoji">📅</div>
+            <div class="fact-label">Next birthday falls on</div>
+            <div class="fact-value" id="nextDay"></div>
+          </div>
+          <div class="fact blue wide">
+            <div class="fact-emoji" id="zodiacEmoji">⭐</div>
+            <div class="fact-label">Your zodiac sign</div>
+            <div class="fact-value" id="zodiacName"></div>
+          </div>
+        </div>
+
+        <button id="resetBtn" class="btn btn-soft">Try another date 🔄</button>
+      </div>
+    </section>
+
+    <!-- ===== HOW TO USE (good for Google) ===== -->
+    <section class="card info-card">
+      <h2>How to use this calculator 🌟</h2>
+      <ol>
+        <li>Tap the date box and choose your date of birth.</li>
+        <li>Press the <strong>“Find My Birth Day ✨”</strong> button.</li>
+        <li>See the weekday you were born on, plus your age, zodiac sign and birthday countdown!</li>
+      </ol>
+    </section>
+
+    <!-- ===== FAQs (good for Google) ===== -->
+    <section class="card info-card">
+      <h2>Frequently Asked Questions 💭</h2>
+
+      <details>
+        <summary>How does this calculator know what day I was born?</summary>
+        <p>It uses the calendar built into your device. Every date in history matches exactly one weekday, so the calculator just looks it up for you in a second.</p>
+      </details>
+
+      <details>
+        <summary>Is my birth date saved anywhere?</summary>
+        <p>No! Everything happens inside your own browser. Your date is never sent or stored anywhere.</p>
+      </details>
+
+      <details>
+        <summary>What if I was born on February 29?</summary>
+        <p>Lucky you, a leap-day baby! 🐸 In years without February 29, we count your birthday on February 28.</p>
+      </details>
+    </section>
+
+    <!-- ===== ABOUT ME ===== -->
+    <section class="card about-card">
+      <h2>About Me 💖</h2>
+      <p>Hi! I'm Dr. Syeda Hiba Fatima, a pharmacist who loves building simple and useful tools. Connect with me on LinkedIn!</p>
+      <a class="btn btn-linkedin"
+         href="https://www.linkedin.com/in/dr-syeda-hiba-fatima-rph-amrsb-534a42309/"
+         target="_blank" rel="noopener noreferrer">
+        <!-- LinkedIn logo drawn with SVG -->
+        <svg class="li-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        Connect on LinkedIn
+      </a>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>Made with 💕 by Hiba Fatima</p>
+    <a class="footer-li"
+       href="https://www.linkedin.com/in/dr-syeda-hiba-fatima-rph-amrsb-534a42309/"
+       target="_blank" rel="noopener noreferrer" aria-label="Hiba Fatima on LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+    </a>
+  </footer>
+
+  <!-- Container where confetti pieces will fall -->
+  <div id="confetti" aria-hidden="true"></div>
+
+  <!-- ===== Our own JavaScript file (the "brain" of the page) ===== -->
+  <script src="script.js"></script>
+</body>
+</html>
